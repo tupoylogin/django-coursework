@@ -1,0 +1,59 @@
+		body{
+	    background-image: url("../img/registration_bg.png");
+            background-size: 135%;
+            background-position: 10% 17%;
+	}
+		.section-reg .input-field label {
+     		color: #03a9f4 !important;
+
+   		}
+   		/* label underline focus color */
+		.section-reg .input-field input[type=text]:focus {
+    		border-bottom: 1px solid #000 !important;
+   		}
+ 		/* icon prefix focus color */
+		.section-reg .input-field .prefix.active {
+			color: #FFAB40 !important;
+		}
+		.section-reg .input-field input[type=text].valid {
+    		border-bottom: 1px solid #03a9f4 !important;
+   		}
+   		/* invalid color */
+		.section-reg .input-field input[type=text].invalid {
+		     border-bottom: 1px solid #FFAB40 !important;
+		   }
+		.section-reg .input-field input[type=email].valid {
+    		border-bottom: 1px solid #03a9f4 !important;
+   		}
+   		/* invalid color */
+		.section-reg .input-field input[type=email].invalid {
+		     border-bottom: 1px solid #FFAB40 !important;
+		   }
+		.section-reg .input-field input[type=tel].valid {
+    		border-bottom: 1px solid #03a9f4 !important;
+   		}
+   		/* invalid color */
+		.section-reg .input-field input[type=tel].invalid {
+		     border-bottom: 1px solid #FFAB40 !important;
+		   }
+		.section-reg .input-field input[type=password].valid {
+    		border-bottom: 1px solid #03a9f4 !important;
+   		}
+   		/* invalid color */
+		.section-reg .input-field input[type=password].invalid {
+		     border-bottom: 1px solid #FFAB40 !important;
+		}
+		@-webkit-keyframes pop-out{
+			from{
+			opacity:0;
+    			top:400px;
+			}
+			to{
+			opacity:1;
+    			 top:0px;
+			}
+		}
+		.label-animated{
+			position:relative;
+			-webkit-animation:pop-out 2.5s;
+		}

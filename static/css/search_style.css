@@ -1,0 +1,77 @@
+        body{
+            background-image: url("../img/search_bg1.jpg");
+            background-size: 100%;
+        }
+@-webkit-keyframes fade-out-alt{
+			from{
+   				 opacity:0;
+    			 top:700px;
+			}
+			to{
+   				 opacity:1;
+    			 top:150px;
+			}
+		}
+		.label-animated-alt{
+			position:relative;
+			-webkit-animation:fade-out-alt 1.5s;
+		}
+			.section-search .input-field label {
+     		color: #FFF !important;
+
+   		}
+   		/* label focus color */
+		.section-search .input-field input[type=text]:focus + label {
+     		color: #FFAB40 !important;
+     		box-shadow: 0 1px 0 0 #000 !important;
+   		}
+   		/* label underline focus color */
+		.section-search .input-field input[type=text]:focus {
+    		border-bottom: 1px solid #FFAB40 ! important;
+   		}
+ 		/* icon prefix focus color */
+		.section-search .input-field .prefix.active {
+			color: #FFAB40 ! important;
+		   }
+        		.noUi-connect {
+  			background: #FF6F61 ! important;
+		   }
+		.noUi-horizontal .noUi-handle,
+		.noUi-vertical .noUi-handle {
+  			background: #FF6F61 ! important;
+		   }
+		.noUi-target.noUi-horizontal .noUi-tooltip {
+		    background-color: #FF6F61 ! important;
+		    text-color: #000 ! important;
+		   }
+		[type="checkbox"] + span:not(.lever):before,
+		[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+  			content: '';
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 18px;
+  			height: 18px;
+  			z-index: 0;
+  			border: 2px solid #ffab40 ;
+  			border-radius: 1px;
+  			margin-top: 3px;
+  			-webkit-transition: .2s;
+  			transition: .2s;
+			}
+		[type="checkbox"]:checked + span:not(.lever):before {
+  			top: -4px;
+  			left: -5px;
+  			width: 12px;
+  			height: 22px;
+  			border-top: 2px solid transparent;
+  			border-left: 2px solid transparent;
+  			border-right: 2px solid #fff;
+  			border-bottom: 2px solid #fff;
+  			-webkit-transform: rotate(40deg);
+          	transform: rotate(40deg);
+  			-webkit-backface-visibility: hidden;
+         	 backface-visibility: hidden;
+  			-webkit-transform-origin: 100% 100%;
+         	 transform-origin: 100% 100%;
+			}

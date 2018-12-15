@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%load static%}
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="{% static '/css/materialize.min.css'%}"  media="screen,projection"/>
+	 <link type="text/css" rel="stylesheet" href="{% static 'css/search_style.css'%}" media="screen,projection"/>
+	<link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/Dogfalo/materialize/v1-dev/extras/noUiSlider/nouislider.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--Custom Style-->
+
+	<meta charset="UTF-8">
+	<title>User Page</title>
+</head>
+<body id="user" class="scrollspy light-grey lighten-1">
+	<div id="nav_bar" class="navbar-fixed" style="transition: 0.5s;">
+		<nav class="teal lighten-3">
+				<div class="nav-wrapper">
+					<a href="#" data-target="mobile-nav" class="sidenav-trigger left-align show-on-large">
+						<i class="material-icons">menu</i></a>
+						<a href="#" class="brand-logo white-text center"><i class="material-icons white-text">place</i>{{request.user.get_full_name}}</a>
+						<ul class="right">
+							<li> <a class="tooltipped" data-position="bottom" data-tooltip="Click me to search tours" onclick="animate_label()"><i class="material-icons white-text">search</i>
+							</a></li>
+							<li><a href="" class="tooltipped" data-position="bottom" data-tooltip="I am your shopping cart"><i class="material-icons white-text">shopping_cart</i></a></li>
+						</ul>
+			</div>
+		</nav>
+	</div>
+	<ul class="sidenav" id="mobile-nav">
+		<li><div class="user-view">
+      		<div class="background">
+        		<img src="{%static 'img/user_bg.jpg'%}">
+      		</div>
+      	<a href="#user"><img class="circle" src="{%static 'img/user_bg.png'%}"></a>
+      	<a href="#name"><span class="white-text name">{{request.user.get_full_name}}</span></a>
+      	<a href="#email"><span class="white-text email">{{request.user.email}}</span></a>
+    	</div></li>
+		<li>
+			<a class="light" href="{% url 'user_settings'%}">My Profile</a>
+		</li>
+		<li>
+			<a class="light" href="{% url 'user_logout'%}">Logout</a>
+		</li>
+	</ul>
+	<!--<section class="section secti		<div class="container label-animated-alt">
+			<div class="row">
+				<h4 class="grey-text text-darken-3">Fast Tips</h4>
+				<div class="col s12 m4">
+					<div class="card-panel light grey-text text-darken-3 orange lighten-1">
+						<i class="material-icons large light-blue-text">menu</i>
+						<h4>Menu Button</h4>
+						<p>Click on this button to show your profile.</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="card-panel light grey-text text-darken-3 orange lighten-1">
+						<i class="material-icons large light-blue-text">search</i>
+						<h4>Search Button</h4>
+						<p>Click on this button to show search panel.</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="card-panel light grey-text text-darken-3 orange lighten-1">
+						<i class="material-icons large light-blue-text">shopping_cart</i>
+						<h4>My Cart</h4>
+						<p>Clicking on this you'll be redirected to your cart page.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>!-->
+	<section  class="section section-search center scrollspy">
+		<div id="search_label" style="opacity:0; ">
+			<div class="row card-panel small light-blue lighten-1">
+				<div class="col s12">
+					<h4 class="white-text">Search tours here!</h4>
+					<form action="{% url 'search_result' %}">
+						{% csrf_token %}
+					<div class="input-field col s12 m10">
+						<i class="material-icons white-text prefix">search</i>
+						<input type="text" class="validate autocomplete white-text" id="autocomplete-input">
+						<label for="autocomplete-input" class="white-text">Type here country name</label>
+					</div>
+					<div class="input-field col s12 m2">
+						<button class="grey-text text-darken-3 waves-effect waves-light orange lighten-1 btn-large" type="submit" name="action">Go!
+						</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="search_label_1" style="opacity:0; ">
+			<div class="row ">
+  			<div class="col s12 m10">
+  				<div class="card-panel light light-blue" style="height: 100px;">
+   					<h5 class="white-text" style="text-align: left;">Prices Range</h5>
+   					<div class="col s10 offset-s2">
+   						<div id="test-slider"></div>
+   					</div>
+    			</div>
+  			</div>
+  			<div class="col s12 m2">
+  				<div class="card-panel light light-blue" style="height: 100px;">
+  				<form action="#">
+    				<h6 style="margin-top:30px;">
+      					<label>
+        					<input type="checkbox"  class="white" style="margin-top:30px;" />
+        					<span  class="white-text">Apply</span>
+      					</label>
+   					</h6>
+   				</form>
+   			</div>
+  			</div>
+  			</div>
+		</div>
+	</section>
+	<!--<div class="container">
+	<div class="row white-text">
+		<div class="col s12 center-align">
+			<h2 class="black-text text-animated" style="opacity: 0; top: -1980px">Welcome!</h4>
+		</div>
+	</div>
+		<div class="row white-text">
+		<div class="col s12 center-align">
+			<h4 class="black-text text-animated" style="opacity: 0; top: -1980px">Have a nice day!</h4>
+		</div>
+	</div>
+	</div>!-->
+	{% load static %}
+	<script type="text/javascript" src="{% static '/js/materialize.min.js' %}"></script>
+	<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>-->
+	<script src="https://cdn.rawgit.com/Dogfalo/materialize/v1-dev/extras/noUiSlider/nouislider.min.js"></script>
+	<script src="https://unpkg.com/wnumb@1.1.0"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+	<script>
+	{% block javascript %}
+		const sideNav = document.querySelector('.sidenav');
+	  M.Sidenav.init(sideNav, {});
+	  document.addEventListener('DOMContentLoaded', function() {
+    	var elems = document.querySelectorAll('.tooltipped');
+    	var instances = M.Tooltip.init(elems, {});
+  		});
+	  function animate_label(){
+	  	document.getElementById('search_label').className="container label-animated-alt";
+	  	document.getElementById('search_label').style.opacity="1";
+	  	document.getElementById('search_label').style.top="150px";
+	  	document.getElementById('search_label_1').className=" container label-animated-alt";
+	  	document.getElementById('search_label_1').style.opacity="1";
+	  	document.getElementById('search_label_1').style.top="150px";
+	  }
+	  const autocmpl = document.querySelector('.autocomplete');
+	  M.Autocomplete.init(autocmpl,{
+      		data: {
+      			{% for key in events %}
+      			{{event}}: null,
+      			{% endfor %}
+      			}
+      			});
+       var slider = document.getElementById('test-slider');
+  		noUiSlider.create(slider, {
+   		start: [2500, 8000],
+   		connect: true,
+   		step: 10,
+   		orientation: 'horizontal', // 'horizontal' or 'vertical'
+   		range: {
+     		'min': 2000,
+     		'max': 10000
+   		},
+   		format: wNumb({
+     		decimals: 0
+   		})
+  		});
+  		{% endblock javascript %}
+  		</script>
+</body>
+</html>

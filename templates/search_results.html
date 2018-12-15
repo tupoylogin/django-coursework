@@ -1,0 +1,11 @@
+{% extends search.html%}
+<section class="section center scrollspy">
+{% load materializecss %}
+{% if tours.count > 0 %}
+{% for tour in tours %}
+    <div class="row">
+        <li>{{tour.place}}</li>
+    </div>
+{% endfor %}
+    {%endif%}
+</section>

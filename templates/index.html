@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+	{%load static%}
+      <link type="text/css" rel="stylesheet" href="{% static '/css/materialize.min.css'%}"  media="screen,projection"/>
+	  <link type="text/css" rel="stylesheet" href="{% static '/css/index_style.css'%}"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--Custom Style-->
+      <style>
+      	 /* label color */
+		.section-search .input-field label {
+     		color: #FFF !important;
+   		}
+   		/* label focus color */
+		.section-search .input-field input[type=text]:focus + label {
+     		color: #FFAB40 !important;
+     		box-shadow: 0 1px 0 0 #000 !important;
+   		}
+   		/* label underline focus color */
+		.section-search .input-field input[type=text]:focus {
+    		border-bottom: 1px solid #FFAB40 !important;
+   		}
+   		/* valid color */
+		.section-search .input-field input[type=text].valid {
+    		border-bottom: 1px solid #fff !important;
+   		}
+   		/* invalid color */
+		.section-search .input-field input[type=text].invalid {
+		     border-bottom: 1px solid #000 !important;
+		   }
+ 		/* icon prefix focus color */
+		.section-search .input-field .prefix.active {
+			color: #FFAB40 !important;
+		   }
+      </style>
+	<meta charset="UTF-8">
+	<title>XtremeTour</title>
+</head>
+<body id="home" class="scrollspy teal lighten-3">
+	<!--Navigation-->
+	<div id="nav_bar" class="navbar-fixed" style="transition: 0.5s;">
+		<nav class="teal lighten-3">
+			<div class="container">
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo white-text"><i class="material-icons white-text">place</i>XTour</a>
+					<a href="" data-target="mobile-nav" class="sidenav-trigger">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul class="right hide-on-med-and-down">
+						<li>
+							<a href="#home">Home</a>
+						</li>
+						<li>
+							<a href="#search">Search</a>
+						</li>
+						<li>
+							<a href="#favourites">Popular Events</a>
+						</li>
+						<li>
+							<a href="#contacts">Contacts</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<ul class="sidenav light-blue white-text" id="mobile-nav">
+		<li>
+			<a class="light white-text" href="#home">Home</a>
+		</li>
+		<li><div class="divider"></div></li>
+		<li>
+			<a class="light white-text" href="#search">Search</a>
+		</li>
+		<li><div class="divider"></div></li>
+		<li>
+			<a class="light white-text" href="#favourites">Popular Events</a>
+		</li>
+		<li><div class="divider"></div></li>
+		<li>
+			<a class="light white-text" href="#contacts">Contacts</a>
+		</li>
+	</ul>
+	<!--Modal-->
+	      <div id="modal1" class="modal fixed-footer center">
+            <div id = "overlay-form" class="row modal-content">
+    			<div class="col s12">
+    			<div class="row">
+    			<div class="caption center-align">
+    			<h4 class="black-text text-lighten-1">If you are new...</h4>
+      			<p class="light black-text text-lighten-1">Please share your contacts to us. Only registered users have permission to order tickets.</p>
+      		    </div>
+      			</div>
+      			<div class="row">
+      			</div>
+				</div>
+   				</form>
+			<div class="modal-footer">
+				<a href="{% url 'user_login' %}" class="modal-close waves-effect waves-light btn-flat">I have been already registered.</a>
+      			<a href="{% url 'register' %}" class="modal-close waves-effect waves-light btn-flat">I want to register.</a>
+    		</div>
+			</div>
+        </div>
+	<!--Slider-->
+	<section class="slider">
+		 <ul class="slides">
+      <li>
+		  {%load static%}
+        <img src="{%static 'img/slide1.jpg'%}">
+        <div class="caption right-align">
+          <h3 class="black-text text-lighten-1">Climbing in Lebanon!</h3>
+          <h5 class="light black-text text-lighten-1">Spend your vacations in this country.</h5>
+          <div class="row">
+          <a href="#modal1" id="mop-button" class="btn waves-effect waves-light black-text light-blue lighten-1 modal-trigger"><i class="material-icons white-text left">airplanemode_active</i>Try it!</a>
+        </div>
+    	</div>
+      </li>
+      <li>
+		  {%load static%}
+        <img src="{%static 'img/slide2.jpg'%}">
+        <div class="caption right-align">
+          <h3 class="black-text text-darken-1">Skydiving in Annapuma Pokhara!</h3>
+          <h5 class="black-text text-darken-1">Feel the wind!</h5>
+			<div class="row">
+          <a href="#modal1" id="mop-button" class="btn waves-effect waves-light black-text light-blue lighten-1 modal-trigger"><i class="material-icons white-text left">airplanemode_active</i>Try it!</a>
+        </div>
+        </div>
+      </li>
+      <li>
+		  {%load static%}
+        <img src="{%static 'img/slide2.jpg'%}">
+        <div class="caption right-align">
+          <h3 class="white-text text-darken-1">Extreme diving!</h3>
+          <h5 class="light white-text text-darken-1">Wherever you want to sink.</h5>
+			<div class="row">
+          <a href="#modal1" id="mop-button" class="btn waves-effect waves-light black-text light-blue lighten-1 modal-trigger"><i class="material-icons white-text left">airplanemode_active</i>Try it!</a>
+        </div>
+        </div>
+      </li>
+    </ul>
+	</section>
+	<!--Search section-->
+	<section id="search" class="light-blue darken-1 section section-search center scrollspy">
+		<div class="container">
+			<div class="row card-panel light-blue lighten-1">
+				<div class="col s12">
+					<h4 class="white-text">Search tours now!</h4>
+					<form>
+					<div class="input-field col s12 m10">
+						<i class="material-icons white-text prefix">search</i>
+						<input type="text" class="validate autocomplete white-text" id="autocomplete-input">
+						<label for="autocomplete-input">Type here for tours</label>
+					</div>
+					<div class="input-field col s12 m2">
+						<button class="grey-text text-darken-3 waves-effect waves-light orange lighten-1 btn-large" type="submit" name="action">Go!
+						</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Icons-->
+	<section class="section light-blue lighten-1 section-icons center">
+		<div class="container">
+			<div class="row">
+				<h4 class="white-text">Why You Should Prefer Us?</h4>
+				<div class="col s12 m4">
+					<div class="card-panel light grey-text text-darken-3 orange lighten-1">
+						<i class="material-icons large light-blue-text">room</i>
+						<h4>Places Variety</h4>
+						<p>We have tours to everywhere. Literally.</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="card-panel light grey-text text-darken-3 orange lighten-1">
+						<i class="material-icons large light-blue-text">attach_money</i>
+						<h4>Prices</h4>
+						<p>Our price policy will satisfy you. We promise.</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="card-panel light grey-text text-darken-3 orange lighten-1">
+						<i class="material-icons large light-blue-text">healing</i>
+						<h4>Health Care</h4>
+						<p>We'll provide you with the best medical care.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--Popular Places-->
+	<section id="favourites" class="section section-favourites scrollspy light-blue lighten-1 center">
+	<div class="row card-panel  orange lighten-1 light grey-text text-darken-3">
+	<h4>Most-visited places</h4>
+    </div>
+    </section>
+	<div class="parallax-container">
+      <div class="parallax"><img src="{%static 'img/background1.jpg'%}"></div>
+    </div>
+    <div class="section light-blue lighten-1">
+      <div class="row container">
+        <h2 class="header white-text">Rocky Mountains, Canada</h2>
+        <p class="white-text lighten-3">These rocks are perfect for ski, so that`s why people prefer them.</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="{%static 'img/background2.png'%}"></div>
+    </div>
+    <div class="section light-blue lighten-1">
+      <div class="row container">
+        <h2 class="header white-text">Black Lake, Montenegro</h2>
+        <p class="white-text lighten-3">Black Lake is simply an awesome place. And also mysterious.</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="{%static 'img/background3.jpg'%}"></div>
+    </div>
+    <div class="section light-blue lighten-1">
+      <div class="row container">
+        <h2 class="header white-text">Maniniholo Bay in Hawaii</h2>
+        <p class="white-text lighten-3">Hawaii is a piece of heaven on the Earth.</p>
+      </div>
+    </div>
+    <footer id="contacts" class="page-footer orange lighten-1">
+    <div class="container grey-text text-darken-3 ">
+      <div class="row">
+        <div class="col l9 s12">
+          <h5 class="grey-text text-darken-3 ">About this project</h5>
+          <p class="grey-text text-darken-3 ">This project is a coursework.</p>
+        </div>
+        <div class="col l3 s12 right-align">
+          <h5 class="grey-text text-darken-3">Connect to us</h5>
+          <ul>
+          	<li><a id="" class="grey-text text-darken-3" href="#!">Log In</a></li>
+            <li><a class="grey-text text-darken-3" href="#!">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container grey-text text-darken-3">
+      Made by <a class="light-blue-text text-darken-3" href="mailto:androsovdmitry80@gmail.com?subject=Coursework">Dmitri Androsov</a>
+      </div>
+    </div>
+  </footer>
+	 <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+      <script>
+      	const sideNav = document.querySelector('.sidenav');
+      	const slder = document.querySelector('.slider');
+      	const autocmpl = document.querySelector('.autocomplete');
+      	var prevScrollpos = window.pageYOffset;
+      	window.onscroll = function(){
+      		var currScrollpos = window.pageYOffset;
+      		if(window.pageYOffset>document.getElementById("nav_bar").style.height*2){
+      		if (prevScrollpos>currScrollpos){
+      			document.getElementById("nav_bar").style.top="0";
+      		}else{
+      			document.getElementById("nav_bar").style.top="-70px";
+      		}}
+      		prevScrollpos=currScrollpos;
+
+      	}
+      	M.Sidenav.init(sideNav, {});
+      	M.Slider.init(slder, {
+      		indicators: false,
+      		height: (window.screen.height-175)*window.devicePixelRatio,
+      		transition: 300,
+      		interval: 5000,
+      	});
+      	M.Autocomplete.init(autocmpl,{
+      		data: {
+      			"Taiwan": null,
+      			"Montenegro": null,
+      			"Hawaii": null,
+      		}
+      	});
+      	document.addEventListener('DOMContentLoaded', function() {
+    	var elems = document.querySelectorAll('.parallax');
+    	var instances = M.Parallax.init(elems, {
+    		height: (window.screen.height-175)*window.devicePixelRatio,
+    		responsiveThreshold: 0,
+    	});
+  		});
+  		document.addEventListener('DOMContentLoaded', function() {
+    	var elems = document.querySelectorAll('.modal');
+    	var instances = M.Modal.init(elems, {
+    		opacity: 0.7,
+    		startingTop:'20%',
+    	});
+  		});
+  		document.addEventListener('DOMContentLoaded', function() {
+    	var elems = document.querySelectorAll('.scrollspy');
+    	var instances = M.ScrollSpy.init(elems, {
+    		throttle: 500,
+    	});
+  		});
+      </script>
+</body>
+</html>

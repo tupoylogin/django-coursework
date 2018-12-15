@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static '/css/materialize.min.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static '/css/login_style.css'%}"  media="screen,projection"/>
+      <link rel="stylesheet" href="cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/Dogfalo/materialize/v1-dev/extras/noUiSlider/nouislider.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="UTF-8">
+	<title>LogIn</title>
+
+</head>
+<body id="registration" class="scrollspy grey darken-1">
+	<div id="nav_bar" class="navbar-fixed" style="transition: 0.5s;">
+		<nav class="teal lighten-3">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo white-text center"><i class="material-icons white-text">place</i>XLogIn</a>
+			</div>
+		</nav>
+	</div>
+<section class="section-reg section center scrollspy label-animated">
+<div class="container">
+	<div class="row card-panel light"  style="margin: 100px;">
+    <form class="col s12" method="POST" action="{% url 'user_login' %}">
+        {% csrf_token %}
+        {{auth_form}}
+          <div class="footer">
+      	<input type="submit" class="modal-close waves-effect waves-light btn light-blue lighnten-1 right white-text">Submit!</input>
+    </div>
+    </form>
+  </div>
+</div>
+</section>
+ <script type="text/javascript" src="{% static '/js/materialize.min.js'%}"></script>
+</body>
+
+</html>
